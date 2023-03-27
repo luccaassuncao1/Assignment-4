@@ -11,7 +11,9 @@ void merge(int pData[], int l, int m, int r)
 	int n2 = r - m;
 	
 	int *L = (int*) malloc(n1*sizeof(int));
+	extraMemoryAllocated += n1*sizeof(int);
 	int *R = (int*) malloc(n2*sizeof(int));
+	extraMemoryAllocated += n2*sizeof(int);
 	
 	for (i = 0; i < n1; i++)
 		L[i] = pData[l + i];
@@ -56,7 +58,6 @@ void merge(int pData[], int l, int m, int r)
 // extraMemoryAllocated counts bytes of extra memory allocated
 void mergeSort(int pData[], int l, int r)
 {
-	extraMemoryAllocated += l + r;
 	if (l < r)
 	{
 		int m = (l+r)/2;
